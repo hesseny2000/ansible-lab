@@ -1,0 +1,16 @@
+---
+- name: My First Ansible Playbook
+  hosts: all
+  become: true
+
+  tasks:
+
+    - name: Create a test file
+      ansible.builtin.file:
+        path: /tmp/ansible_test.txt
+        state: touch
+
+    - name: Write message
+      ansible.builtin.copy:
+        content: "Hello from Ansible Automation Platform"
+        dest: /tmp/ansible_test.txt
